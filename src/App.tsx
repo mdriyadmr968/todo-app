@@ -45,7 +45,12 @@ function App() {
       <input type="text" ref={newTodoRef} />
       <button onClick={onAddTodo}>Add</button>
       {todos.map((todo) => (
-        <div key={todo.id}>{todo.text}</div>
+        <div key={todo.id}>
+          {todo.text}
+          <button onClick={() => dispatch({ type: "REMOVE", id: todo.id })}>
+            Remove
+          </button>
+        </div>
       ))}
     </div>
   );
